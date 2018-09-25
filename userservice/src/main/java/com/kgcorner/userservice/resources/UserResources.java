@@ -4,6 +4,7 @@ import com.kgcorner.userservice.services.UserService;
 import com.kgcorner.dto.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,7 +27,7 @@ public class UserResources {
 
     @GetMapping("/users/{userId}")
     public User getUsers(
-            @RequestParam(name = "userId") int id
+            @PathVariable(name = "userId") int id
     ) {
         return userService.getUser(id);
     }

@@ -1,12 +1,12 @@
-package com.kgcorner.photoservice;
+package com.kgcorner;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PhotoServiceApplication {
+public class CommentServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PhotoServiceApplication.class, args);
+		SpringApplication.run(CommentServiceApplication.class, args);
 	}
 }

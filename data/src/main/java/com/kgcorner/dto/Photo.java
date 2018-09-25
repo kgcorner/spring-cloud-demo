@@ -9,6 +9,11 @@ public class Photo {
     private User uploader;
     private int commentsCount;
 
+
+    public Photo(){}
+
+    public Photo(int id){this.id = id;}
+
     public int getId() {
         return id;
     }

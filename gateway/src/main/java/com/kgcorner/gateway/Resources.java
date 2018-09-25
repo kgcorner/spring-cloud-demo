@@ -32,7 +32,7 @@ public class Resources {
 
 
     @GetMapping("/photos/{photoId}/comments")
-    public Comment getComment(@PathVariable("photoId") int photoId) {
+    public List<Comment> getComment(@PathVariable("photoId") int photoId) {
         return commentServices.getComment(photoId);
     }
 

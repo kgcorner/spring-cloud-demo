@@ -1,6 +1,7 @@
 package com.kgcorner.services;
 
 import com.kgcorner.dto.Photo;
+import com.kgcorner.dto.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Service;
@@ -18,16 +19,23 @@ public class PhotoServices {
     @Autowired
     private PhotoServices.PhotoServiceFeignClient photoServiceFeignClient;
 
+    @Autowired
+    private UserServices userServices;
 
     public List<Photo> getPhotos() {
-        return photoServiceFeignClient.getPhotos();
+        List<Photo> photos = photoServiceFeignClient.getPhotos();
+        for(Photo photo : photos) {
+            User user = userServices.getUser(photo.getUploader().getId());
+            photo.setUploader(user);
+        }
+        return photos;
     }
 
     public Photo getPhoto(int photoId) {
         return photoServiceFeignClient.getPhoto(photoId);
     }
 
-    @FeignClient("photos-service")
+    @FeignClient("photo-service")
     private static interface PhotoServiceFeignClient {
 
         @GetMapping("/photos")

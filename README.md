@@ -12,7 +12,7 @@ There are 6 services in this demo, serving different contents
 ### What is Config Server
 In cloud environment configuration can be kept centralized. Spring cloud provides config-server which can fetch configuration from version control systems like git or svn and from file system as well. In this demo directory configserver contains config-server which is configured to use this git repository for storing config files. all config files are kept in config folder.
 
-### what is discovery-service
+### What is discovery-service
 Discovery service is responsible for registering and providing 
   1. Location of different services
   2. Status of different services, whether they are running or is down

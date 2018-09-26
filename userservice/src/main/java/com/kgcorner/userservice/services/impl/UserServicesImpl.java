@@ -4,6 +4,8 @@ import com.kgcorner.userservice.models.UserModel;
 import com.kgcorner.userservice.services.UserService;
 import com.kgcorner.dao.DataRepository;
 import com.kgcorner.dto.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,7 @@ import java.util.List;
 @Service
 public class UserServicesImpl implements UserService {
 
+    private static final Logger LOGEGR = LoggerFactory.getLogger(UserServicesImpl.class);
     @Autowired
     private DataRepository<UserModel> userDataRepository;
 
@@ -37,6 +40,7 @@ public class UserServicesImpl implements UserService {
             User user = getUserFromModel(model);
             users.add(user);
         }
+        LOGEGR.info("Returning "+users.size()+" users");
         return users;
     }
     private User getUserFromModel(UserModel model) {

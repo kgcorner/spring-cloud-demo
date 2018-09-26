@@ -18,10 +18,4 @@ public class GatewayApplication {
 		SpringApplication.run(GatewayApplication.class, args);
 	}
 
-	@Bean
-	public Sampler getSampler() {
-		SamplerProperties properties = new SamplerProperties();
-		properties.setProbability(1.0f);
-		return new ProbabilityBasedSampler(properties);
-	}
 }
